@@ -1,6 +1,6 @@
 <template>
   <div class="demo">
-    <h1 style="text-align: center;">DEMO</h1>
+    <h1 style="text-align: center;">富文本编辑器</h1>
     <div class="editor-wrap">
       <editor
         class="editor-1"
@@ -128,6 +128,8 @@ const data =  {
   "version" : "2.18.0"
 }
 
+editorHtml.value = edjsParser.parse(data).join('')
+
 const editorChange = async (args) => {
   const json =  await args.saver.save()
   let html = edjsParser.parse(json)
@@ -139,14 +141,19 @@ const onInitialized = (editor) => {
   }
 </script>
 
-<style scoped>
+<style scoped lang='scss'>
 .editor-wrap {
   display: flex;
 }
 .editor-1 {
   flex: 1;
+  overflow: hidden;
 }
 .editor-2 {
   flex: 1;
+  overflow: hidden;
+}
+.codex-editor--narrow .ce-toolbar__actions {
+  right: 0;
 }
 </style>

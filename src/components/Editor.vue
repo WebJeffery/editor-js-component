@@ -28,6 +28,8 @@ import InlineCode from '@editorjs/inline-code'
 import Delimiter from '@editorjs/delimiter'
 import SimpleImage from '@editorjs/simple-image'
 
+import { IconH1, IconH2, IconH3, IconH4, IconH5, IconH6, IconHeading } from '@codexteam/icons'
+
 // 功能
 import Undo from 'editorjs-undo'
 import DragDrop from 'editorjs-drag-drop'
