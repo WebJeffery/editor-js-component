@@ -1,0 +1,8 @@
+{
+  "name": "@editor-js-vue/image",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "index.ts",
+  "module": "index.ts",
+  "types": "index.d.ts"
+}

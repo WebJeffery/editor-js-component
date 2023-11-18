@@ -1,0 +1,118 @@
+.cdx-alert {
+  position: relative;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.cdx-alert-primary {
+  background-color: #ebf8ff;
+  border: 1px solid #4299e1;
+  color: #2b6cb0;
+}
+.cdx-alert-secondary {
+  background-color: #f7fafc;
+  border: 1px solid #cbd5e0;
+  color: #222731;
+}
+.cdx-alert-info {
+  background-color: #e6fdff;
+  border: 1px solid #4cd4ce;
+  color: #00727c;
+}
+.cdx-alert-success {
+  background-color: #f0fff4;
+  border: 1px solid #68d391;
+  color: #2f855a;
+}
+.cdx-alert-warning {
+  background-color: #fffaf0;
+  border: 1px solid #ed8936;
+  color: #c05621;
+}
+.cdx-alert-danger {
+  background-color: #fff5f5;
+  border: 1px solid #fc8181;
+  color: #c53030;
+}
+.cdx-alert-light {
+  background-color: #fff;
+  border: 1px solid #edf2f7;
+  color: #1a202c;
+}
+.cdx-alert-dark {
+  background-color: #2d3748;
+  border: 1px solid #1a202c;
+  color: #d3d3d3;
+}
+.cdx-alert__message {
+  outline: none;
+}
+.cdx-alert [contentEditable='true'][data-placeholder]::before {
+  position: absolute;
+  content: attr(data-placeholder);
+  color: #707684;
+  font-weight: normal;
+  opacity: 0;
+}
+.cdx-alert [contentEditable='true'][data-placeholder]:empty::before {
+  opacity: 1;
+}
+.cdx-alert [contentEditable='true'][data-placeholder]:empty:focus::before {
+  opacity: 0;
+}
+.ce-popover__item[data-item-name="alert-primary"] .ce-popover__item-icon svg #background {
+  fill: #ebf8ff;
+  stroke: #4299e1;
+}
+.ce-popover__item[data-item-name="alert-primary"] .ce-popover__item-icon svg #content {
+  fill: #2b6cb0;
+}
+.ce-popover__item[data-item-name="alert-secondary"] .ce-popover__item-icon svg #background {
+  fill: #f7fafc;
+  stroke: #cbd5e0;
+}
+.ce-popover__item[data-item-name="alert-secondary"] .ce-popover__item-icon svg #content {
+  fill: #222731;
+}
+.ce-popover__item[data-item-name="alert-info"] .ce-popover__item-icon svg #background {
+  fill: #e6fdff;
+  stroke: #4cd4ce;
+}
+.ce-popover__item[data-item-name="alert-info"] .ce-popover__item-icon svg #content {
+  fill: #00727c;
+}
+.ce-popover__item[data-item-name="alert-success"] .ce-popover__item-icon svg #background {
+  fill: #f0fff4;
+  stroke: #68d391;
+}
+.ce-popover__item[data-item-name="alert-success"] .ce-popover__item-icon svg #content {
+  fill: #2f855a;
+}
+.ce-popover__item[data-item-name="alert-warning"] .ce-popover__item-icon svg #background {
+  fill: #fffaf0;
+  stroke: #ed8936;
+}
+.ce-popover__item[data-item-name="alert-warning"] .ce-popover__item-icon svg #content {
+  fill: #c05621;
+}
+.ce-popover__item[data-item-name="alert-danger"] .ce-popover__item-icon svg #background {
+  fill: #fff5f5;
+  stroke: #fc8181;
+}
+.ce-popover__item[data-item-name="alert-danger"] .ce-popover__item-icon svg #content {
+  fill: #c53030;
+}
+.ce-popover__item[data-item-name="alert-light"] .ce-popover__item-icon svg #background {
+  fill: #fff;
+  stroke: #edf2f7;
+}
+.ce-popover__item[data-item-name="alert-light"] .ce-popover__item-icon svg #content {
+  fill: #1a202c;
+}
+.ce-popover__item[data-item-name="alert-dark"] .ce-popover__item-icon svg #background {
+  fill: #2d3748;
+  stroke: #1a202c;
+}
+.ce-popover__item[data-item-name="alert-dark"] .ce-popover__item-icon svg #content {
+  fill: #d3d3d3;
+}
