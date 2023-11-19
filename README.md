@@ -44,3 +44,10 @@ pnpm add dayjs --filter @editor-vue/examples
 ```
 
 vitepress-theme-demoblock
+
+
+```js
+static t(s, e) {
+    return ie._t(s, e);
+  }
+  ```

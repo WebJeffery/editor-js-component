@@ -113,6 +113,9 @@ importers:
       '@codexteam/icons':
         specifier: ^0.3.0
         version: registry.npmjs.org/@codexteam/icons@0.3.0
+      '@editor-js/header':
+        specifier: workspace:^
+        version: link:../header
       '@editorjs/checklist':
         specifier: ^1.6.0
         version: registry.npmjs.org/@editorjs/checklist@1.6.0
@@ -181,6 +184,8 @@ importers:
         version: registry.npmjs.org/editorjs-undo@2.0.26
 
   packages/editorjs-transform-html: {}
+
+  packages/header: {}
 
   packages/image: {}
 

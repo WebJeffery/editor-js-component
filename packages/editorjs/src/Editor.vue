@@ -17,7 +17,8 @@ import {
 
 // Block Tools for the Editor
 import EditorJS from '@editorjs/editorjs'
-import Header from '@editorjs/header'
+import Header from '@editor-js/header'
+// import Header from '@editorjs/header'
 import Paragraph from '@editorjs/paragraph'
 import List from '@editorjs/list'
 import CodeTool from '@editorjs/code'
@@ -70,13 +71,6 @@ const state = reactive({ editor: null })
 function initEditor() {
   destroyEditor()
   const defaultConfig = {
-    // header: {
-    //   class: Header,
-    //   config: {
-    //     // levels: [2, 3, 4, 5, 6], // 可转化的标题类型
-    //     defaultLevel: 1 // 默认标题
-    //   }
-    // },
     h1: {
       class: Header,
       config: {
@@ -115,7 +109,7 @@ function initEditor() {
       },
       toolbox: {
         icon: IconH4,
-        title: 'H5'
+        title: 'H4'
       }
     },
     h5: {
@@ -227,35 +221,24 @@ function initEditor() {
     holder: props.holder || 'vue-editor-js',
     tools: Object.assign(defaultConfig, props.customTool),
     data: props.data || {},
-    // i18n: {
-    //   messages: {
-    //     tools: {
-    //       header: {
-    //         "Header": "标题"
-    //       }
-    //     }
-    //   }
-    // },
     i18n: {
       messages: {
         ui: {
           blockTunes: {
             toggler: {
-              'Click to tune': '点击转换',
-              'Heading 2': '标题2'
+              'Click to tune': '点击转换'
               // "or drag to move": "拖拽移动"
             }
           },
           inlineToolbar: {
             converter: {
               'Convert to': '内部转换'
-            }
+            },
           },
           // Translations of internal UI components of the editor.js core
           toolbar: {
             toolbox: {
-              Add: '工具栏添加',
-              'Heading 2': '标题2'
+              Add: '工具栏添加'
             }
           },
           popover: {
@@ -268,40 +251,100 @@ function initEditor() {
         toolNames: {
           Text: t('message.hello'),
           List: '列表',
-          H1: '222',
-          'Heading 2': '标题2'
-          // "Heading": "标题",
-          // h1: 1111
+          H1: '标题1',
+          H2: '标题2',
+          H3: '标题3',
+          H4: '标题4',
+          H5: '标题5',
+          H6: '标题6',
+          Bold: '加粗',
+          Italic: '斜体',
+          Link: '链接',
+          Marker: '标记'
         },
         /**
          * Section for passing translations to the external tools classes
          */
         tools: {
+          h1: {
+            'Heading 1': '标题1',
+            'Heading 2': '标题2',
+            'Heading 3': '标题3',
+            'Heading 4': '标题4',
+            'Heading 5': '标题5',
+            'Heading 6': '标题6'
+          },
+          h2: {
+            'Heading 1': '标题1',
+            'Heading 2': '标题2',
+            'Heading 3': '标题3',
+            'Heading 4': '标题4',
+            'Heading 5': '标题5',
+            'Heading 6': '标题6'
+          },
+          h3: {
+            'Heading 1': '标题1',
+            'Heading 2': '标题2',
+            'Heading 3': '标题3',
+            'Heading 4': '标题4',
+            'Heading 5': '标题5',
+            'Heading 6': '标题6'
+          },
+          h4: {
+            'Heading 1': '标题1',
+            'Heading 2': '标题2',
+            'Heading 3': '标题3',
+            'Heading 4': '标题4',
+            'Heading 5': '标题5',
+            'Heading 6': '标题6'
+          },
+          h5: {
+            'Heading 1': '标题1',
+            'Heading 2': '标题2',
+            'Heading 3': '标题3',
+            'Heading 4': '标题4',
+            'Heading 5': '标题5',
+            'Heading 6': '标题6'
+          },
+          h6: {
+            'Heading 1': '标题1',
+            'Heading 2': '标题2',
+            'Heading 3': '标题3',
+            'Heading 4': '标题4',
+            'Heading 5': '标题5',
+            'Heading 6': '标题6'
+          },
           header: {
-            Header: '3333',
-            h1: '表态',
-            'Heading 2': '标题2'
+            'Heading 1': '标题1',
+            'Heading 2': '标题2',
+            'Heading 3': '标题3',
+            'Heading 4': '标题4',
+            'Heading 5': '标题5',
+            'Heading 6': '标题6'
           },
           link: {
             'Add a link': '添加链接'
           },
           code: {
             'Enter a code': '输入代码'
+          },
+          list: {
+            Ordered: '有序列表',
+            Unordered: '无序列表'
           }
           // header: {
           // }
         },
         // Section allows to translate Block Tunes
         blockTunes: {
-          'Heading 2': '标题2',
           delete: {
             Delete: '删除'
           },
           moveUp: {
-            'Move up': 'Переместить вверх'
+            'Move up': '上移'
           },
           moveDown: {
-            'Move down': 'Переместить вниз'
+            'Move down': '下移'
           }
         }
       }

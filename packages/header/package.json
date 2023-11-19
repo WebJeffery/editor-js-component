@@ -1,0 +1,8 @@
+{
+  "name": "@editor-js/header",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "index.ts",
+  "module": "src/index.js",
+  "types": "index.d.ts"
+}
