@@ -47,10 +47,10 @@ import {
 // 功能
 import Undo from 'editorjs-undo'
 import DragDrop from 'editorjs-drag-drop'
+import { useI18n } from 'vue-i18n'
 import { PropsType } from './type'
 
-const modules = import.meta.glob('./utils/a.css', { eager: true })
-console.log('modules', modules)
+const { t } = useI18n()
 
 const props = withDefaults(defineProps<PropsType>(), {
   holder: 'vue-editor-js',
@@ -70,6 +70,13 @@ const state = reactive({ editor: null })
 function initEditor() {
   destroyEditor()
   const defaultConfig = {
+    // header: {
+    //   class: Header,
+    //   config: {
+    //     // levels: [2, 3, 4, 5, 6], // 可转化的标题类型
+    //     defaultLevel: 1 // 默认标题
+    //   }
+    // },
     h1: {
       class: Header,
       config: {
@@ -78,7 +85,7 @@ function initEditor() {
       },
       toolbox: {
         icon: IconH1,
-        title: '标题1'
+        title: 'H1'
       }
     },
     h2: {
@@ -88,7 +95,7 @@ function initEditor() {
       },
       toolbox: {
         icon: IconH2,
-        title: '标题2'
+        title: 'H2'
       }
     },
     h3: {
@@ -98,7 +105,7 @@ function initEditor() {
       },
       toolbox: {
         icon: IconH3,
-        title: '标题3'
+        title: 'H3'
       }
     },
     h4: {
@@ -108,7 +115,7 @@ function initEditor() {
       },
       toolbox: {
         icon: IconH4,
-        title: '标题4'
+        title: 'H5'
       }
     },
     h5: {
@@ -118,7 +125,7 @@ function initEditor() {
       },
       toolbox: {
         icon: IconH5,
-        title: '标题5'
+        title: 'H5'
       }
     },
     h6: {
@@ -128,7 +135,7 @@ function initEditor() {
       },
       toolbox: {
         icon: IconH6,
-        title: '标题6'
+        title: 'H6'
       }
     },
     paragraph: {
@@ -136,22 +143,16 @@ function initEditor() {
       inlineToolbar: true,
       config: {
         placeholder: 'Press Tab to select a Block'
-      },
-      toolbox: {
-        title: '段落'
       }
+      // toolbox: {
+      //   title: '段落'
+      // }
     },
     list: {
-      class: List,
-      toolbox: {
-        title: '列表'
-      }
+      class: List
     },
     code: {
-      class: CodeTool,
-      toolbox: {
-        title: '代码'
-      }
+      class: CodeTool
     },
     embed: {
       class: Embed,
@@ -168,9 +169,6 @@ function initEditor() {
       config: {
         rows: 2,
         cols: 3
-      },
-      toolbox: {
-        title: '表格'
       }
     },
     checklist: {
@@ -241,16 +239,70 @@ function initEditor() {
     i18n: {
       messages: {
         ui: {
+          blockTunes: {
+            toggler: {
+              'Click to tune': '点击转换',
+              'Heading 2': '标题2'
+              // "or drag to move": "拖拽移动"
+            }
+          },
+          inlineToolbar: {
+            converter: {
+              'Convert to': '内部转换'
+            }
+          },
           // Translations of internal UI components of the editor.js core
+          toolbar: {
+            toolbox: {
+              Add: '工具栏添加',
+              'Heading 2': '标题2'
+            }
+          },
+          popover: {
+            Filter: '过滤',
+            'Nothing found': '找不到',
+            'Heading 2': '标题2'
+          }
         },
+        // Section for translation Tool Names: both block and inline tools
         toolNames: {
-          // Section for translation Tool Names: both block and inline tools
+          Text: t('message.hello'),
+          List: '列表',
+          H1: '222',
+          'Heading 2': '标题2'
+          // "Heading": "标题",
+          // h1: 1111
         },
+        /**
+         * Section for passing translations to the external tools classes
+         */
         tools: {
-
+          header: {
+            Header: '3333',
+            h1: '表态',
+            'Heading 2': '标题2'
+          },
+          link: {
+            'Add a link': '添加链接'
+          },
+          code: {
+            'Enter a code': '输入代码'
+          }
+          // header: {
+          // }
         },
+        // Section allows to translate Block Tunes
         blockTunes: {
-          // Section allows to translate Block Tunes
+          'Heading 2': '标题2',
+          delete: {
+            Delete: '删除'
+          },
+          moveUp: {
+            'Move up': 'Переместить вверх'
+          },
+          moveDown: {
+            'Move down': 'Переместить вниз'
+          }
         }
       }
     },

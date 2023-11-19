@@ -2,6 +2,7 @@
   <div class="demo">
     <h1 style="text-align: center;">
       Notion 富文本编辑器
+      {{t('message.hello')}}
     </h1>
     <div class="editor-wrap">
       <editor
@@ -22,6 +23,10 @@
 import { ref } from 'vue'
 
 import Editor, { parseHtml } from './index'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+console.log('i18n', t)
 
 const edjsParser = parseHtml()
 const editorHtml = ref('')

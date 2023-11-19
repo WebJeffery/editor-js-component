@@ -14,6 +14,9 @@ importers:
       vue:
         specifier: ^3.3.4
         version: registry.npmjs.org/vue@3.3.4
+      vue-i18n:
+        specifier: ^9.4.1
+        version: registry.npmjs.org/vue-i18n@9.4.1(vue@3.3.4)
       vue3-editor-js:
         specifier: workspace:*
         version: link:packages/editorjs
@@ -1813,6 +1816,33 @@ packages:
     version: 2.0.1
     dev: true
 
+  registry.npmjs.org/@intlify/core-base@9.4.1:
+    resolution: {integrity: sha512-WIwx+elsZbxSMxRG5+LC+utRohFvmZMoDevfKOfnYMLbpCjCSavqTfHJAtfsY6ruowzqXeKkeLhRHbYbjoJx5g==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@intlify/core-base/-/core-base-9.4.1.tgz}
+    name: '@intlify/core-base'
+    version: 9.4.1
+    engines: {node: '>= 16'}
+    dependencies:
+      '@intlify/message-compiler': registry.npmjs.org/@intlify/message-compiler@9.4.1
+      '@intlify/shared': registry.npmjs.org/@intlify/shared@9.4.1
+    dev: false
+
+  registry.npmjs.org/@intlify/message-compiler@9.4.1:
+    resolution: {integrity: sha512-aN2N+dUx320108QhH51Ycd2LEpZ+NKbzyQ2kjjhqMcxhHdxtOnkgdx+MDBhOy/CObwBmhC3Nygzc6hNlfKvPNw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@intlify/message-compiler/-/message-compiler-9.4.1.tgz}
+    name: '@intlify/message-compiler'
+    version: 9.4.1
+    engines: {node: '>= 16'}
+    dependencies:
+      '@intlify/shared': registry.npmjs.org/@intlify/shared@9.4.1
+      source-map-js: registry.npmjs.org/source-map-js@1.0.2
+    dev: false
+
+  registry.npmjs.org/@intlify/shared@9.4.1:
+    resolution: {integrity: sha512-A51elBmZWf1FS80inf/32diO9DeXoqg9GR9aUDHFcfHoNDuT46Q+fpPOdj8jiJnSHSBh8E1E+6qWRhAZXdK3Ng==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@intlify/shared/-/shared-9.4.1.tgz}
+    name: '@intlify/shared'
+    version: 9.4.1
+    engines: {node: '>= 16'}
+    dev: false
+
   registry.npmjs.org/@isaacs/cliui@8.0.2:
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@isaacs/cliui/-/cliui-8.0.2.tgz}
     name: '@isaacs/cliui'
@@ -2433,7 +2463,6 @@ packages:
     resolution: {integrity: sha512-+KpckaAQyfbvshdDW5xQylLni1asvNSGme1JFs8I1+/H5pHEhqUKMEQD/qn3Nx5+/nycBq11qAEi8lk+LXI2dA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-6.5.1.tgz}
     name: '@vue/devtools-api'
     version: 6.5.1
-    dev: true
 
   registry.npmjs.org/@vue/language-core@1.8.5(typescript@5.1.6):
     resolution: {integrity: sha512-DKQNiNQzNV7nrkZQujvjfX73zqKdj2+KoM4YeKl+ft3f+crO3JB4ycPnmgaRMNX/ULJootdQPGHKFRl5cXxwaw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@vue/language-core/-/language-core-1.8.5.tgz}
@@ -7547,6 +7576,21 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  registry.npmjs.org/vue-i18n@9.4.1(vue@3.3.4):
+    resolution: {integrity: sha512-vnQyYE9LBuNOqPpETIcCaGnAyLEqfeIvDcyZ9T+WBCWFTqWw1J8FuF1jfeDwpHBi5JKgAwgXyq1mt8jp/x/GPA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/vue-i18n/-/vue-i18n-9.4.1.tgz}
+    id: registry.npmjs.org/vue-i18n/9.4.1
+    name: vue-i18n
+    version: 9.4.1
+    engines: {node: '>= 16'}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      '@intlify/core-base': registry.npmjs.org/@intlify/core-base@9.4.1
+      '@intlify/shared': registry.npmjs.org/@intlify/shared@9.4.1
+      '@vue/devtools-api': registry.npmjs.org/@vue/devtools-api@6.5.1
+      vue: registry.npmjs.org/vue@3.3.4
+    dev: false
 
   registry.npmjs.org/vue-template-compiler@2.7.15:
     resolution: {integrity: sha512-yQxjxMptBL7UAog00O8sANud99C6wJF+7kgbcwqkvA38vCGF7HWE66w0ZFnS/kX5gSoJr/PQ4/oS3Ne2pW37Og==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/vue-template-compiler/-/vue-template-compiler-2.7.15.tgz}

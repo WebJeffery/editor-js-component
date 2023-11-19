@@ -63,6 +63,7 @@
   },
   "dependencies": {
     "element-plus": "^2.4.2",
+    "vue-i18n": "^9.4.1",
     "vue3-editor-js": "workspace:*"
   },
   "peerDependencies": {
