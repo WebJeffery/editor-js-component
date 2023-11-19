@@ -168,7 +168,7 @@ export interface OutputBlockData<Type extends string = string, Data extends obje
   tunes?: { [name: string]: BlockTuneData };
 }
 
-type ListItem = {
+export type ListItem = {
   content: string;
   items: Array<ListItem>;
 };
@@ -212,5 +212,15 @@ export type Transforms = {
   code(block: Block): string;
   embed(block: Block): string;
 };
+
+type Element = {
+  class: string
+}
+
+export type ElementConfig = {
+  wrapBlock: boolean,
+  header: Element
+  paragraph: Element
+}
 
 // const alignType = ['left', 'right', 'center', 'justify']

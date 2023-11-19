@@ -30,8 +30,9 @@ import RawTool from '@editorjs/raw'
 import Quote from '@editorjs/quote'
 import InlineCode from '@editorjs/inline-code'
 import Delimiter from '@editorjs/delimiter'
+import Image from '@editorjs/image'
 import SimpleImage from '@editorjs/simple-image'
-import { EdjsParser } from 'editorjs-transform-html'
+import { EdjsParser, parserCss } from 'editorjs-transform-html'
 
 import {
   IconH1,
@@ -202,25 +203,27 @@ function initEditor() {
     //   class: InlineCode,
     //   shortcut: 'CMD+SHIFT+M',
     // },
-    // image: {
-    //   class: Image,
-    //   inlineToolbar: true,
-    //   config: {
-    //     types: 'image/*, video/mp4',
-    //     endpoints: {
-    //       byFile: '/api/transport/image',
-    //       byUrl: '/api/transport/fetch',
-    //     },
-    //   },
-    // },
+    image: {
+      class: Image,
+      inlineToolbar: true,
+      config: {
+        types: 'image/*, video/mp4',
+        endpoints: {
+          byFile: '/api/transport/image',
+          byUrl: '/api/transport/fetch'
+        }
+      }
+    },
     delimiter: {
       class: Delimiter,
       inlineToolbar: true
-    },
-    image: SimpleImage
+    }
+    // image: SimpleImage
   }
 
   const edjsParser = new EdjsParser()
+
+  console.log(parserCss())
 
   state.editor = new EditorJS({
     holder: props.holder || 'vue-editor-js',
@@ -266,12 +269,16 @@ function initEditor() {
       // 拖拽
       new DragDrop(state.editor)
     },
-    async onChange() {
+    async onChange(argv) {
       const json = await state.editor.save()
       const html = edjsParser.parserHtml(json)
-      console.log(json, html)
-      // console.log(html)
-      // emit('changeData', state.editor)
+      console.log(html)
+
+      emit('changeData', {
+        json,
+        html,
+        editor: argv
+      })
     }
     // ...props.editorConfig
   })

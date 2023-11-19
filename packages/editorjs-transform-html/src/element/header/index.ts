@@ -1,9 +1,8 @@
-import { HeaderBlock, Props } from '../../interfaces'
+import { HeaderBlock, Props, ElementConfig } from '../../interfaces'
 import { baseBlock } from '../../utils'
-import './index.css'
 
-export function header({ data }: Props<HeaderBlock>, wrapBlock: boolean) {
+export function header({ data }: Props<HeaderBlock>, config: ElementConfig) {
   const { anchor, level, text } = data
-  const item = `<h${level} class="ce-header cd-header${level}" ${anchor ? `id="${anchor}"` : ''}>${text}</h${level}>`
-  return baseBlock(item, wrapBlock)
+  const item = `<h${level} class="${config.header.class} cd-header-${level}" ${anchor ? `id="${anchor}"` : ''}>${text}</h${level}>`
+  return baseBlock(item, config.wrapBlock)
 }

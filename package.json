@@ -19,6 +19,8 @@
     "docs:dev": "vitepress dev docs",
     "docs:serve": "vitepress serve docs",
     "editorjs": "pnpm --filter vue3-editor-js dev",
+    "editorjs:build": "pnpm --filter vue3-editor-js build",
+    "editorjs:preview": "pnpm --filter vue3-editor-js preview",
     "commit": "git-cz",
     "standard-version": "standard-version",
     "changelog": "npx conventional-changelog -p angular -i CHANGELOG.md -s -r 0",

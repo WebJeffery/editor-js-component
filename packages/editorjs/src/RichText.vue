@@ -131,13 +131,8 @@ const data = {
   version: '2.18.0'
 }
 
-// editorHtml.value = edjsParser.parse(data).join('')
-
-const editorChange = async (args) => {
-  const json = await args.save()
-  console.log(json)
-  const html = edjsParser.parse(json)
-  editorHtml.value = html.join('')
+const editorChange = ({ html }) => {
+  editorHtml.value = html
 }
 
 const onInitialized = (editor) => {

@@ -1,14 +1,14 @@
-import './index.css'
-import { CodeBlock, Props } from '../../interfaces'
+import { CodeBlock, Props, ElementConfig } from '../../interfaces'
 import { baseBlock } from '../../utils'
 
-export function code({ data }: Props<CodeBlock>, wrapBlock: boolean) {
-  const item = `
-        <div class="cdx-block ce-code">
-            <textarea class="ce-code__textarea cdx-input" placeholder="Enter a code" disabled="">
-                ${data.code}
-            </textarea>
-        </div>
-    `
-  return wrapBlock ? baseBlock(item) : item
+export function code({ data }: Props<CodeBlock>, config: ElementConfig) {
+  // const item = `
+  //       <div class="cdx-block ce-code">
+  //           <textarea class="ce-code__textarea cdx-input" placeholder="Enter a code" disabled="">
+  //               ${data.code}
+  //           </textarea>
+  //       </div>
+  //   `
+  const item = `<pre><code>${data.code}</code></pre>`
+  return baseBlock(item, config.wrapBlock)
 }

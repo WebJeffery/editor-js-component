@@ -1,8 +1,7 @@
-import './index.css'
-import { CheckListBlock, Props } from '../../interfaces'
+import { CheckListBlock, Props, ElementConfig } from '../../interfaces'
 import { baseBlock } from '../../utils'
 
-export function checklist({ data }: Props<CheckListBlock>, wrapBlock: boolean) {
+export function checklist({ data }: Props<CheckListBlock>, config: ElementConfig) {
   const item = `
         <div class="cdx-block cdx-checklist">
             ${data.items.map((i) => `<div class="cdx-checklist__item ${i.checked ? 'cdx-checklist__item--checked' : ''}">
@@ -13,5 +12,5 @@ export function checklist({ data }: Props<CheckListBlock>, wrapBlock: boolean) {
                 </div>`).join('')}
         </div>
     `
-  return wrapBlock ? baseBlock(item) : item
+  return baseBlock(item, config.wrapBlock)
 }
