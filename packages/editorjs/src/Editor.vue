@@ -10,8 +10,6 @@
 import {
   reactive,
   onMounted,
-  watch,
-  defineComponent,
   withDefaults
 } from 'vue'
 
@@ -233,7 +231,7 @@ function initEditor() {
           inlineToolbar: {
             converter: {
               'Convert to': '内部转换'
-            },
+            }
           },
           // Translations of internal UI components of the editor.js core
           toolbar: {
@@ -249,15 +247,15 @@ function initEditor() {
         },
         // Section for translation Tool Names: both block and inline tools
         toolNames: {
-          Text: t('message.hello'),
+          Text: t('tool.paragraph'),
           List: '列表',
-          H1: '标题1',
+          H1: '标题1444',
           H2: '标题2',
           H3: '标题3',
           H4: '标题4',
           H5: '标题5',
           H6: '标题6',
-          Bold: '加粗',
+          // Bold: '加粗',
           Italic: '斜体',
           Link: '链接',
           Marker: '标记'
@@ -377,6 +375,7 @@ function initEditor() {
     }
     // ...props.editorConfig
   })
+
   props.initialized(state.editor)
 }
 
@@ -386,6 +385,10 @@ function destroyEditor() {
     state.editor = null
   }
 }
+
+defineExpose({
+  initEditor
+})
 
 onMounted(() => initEditor(props))
 

@@ -1,12 +1,16 @@
 <template>
   <div class="demo">
+    <div>
+      切换语言：
+      <button @click="switchLang"> {{ lang === 'zh' ? '中文' : '英文' }}</button>
+    </div>
     <h1 style="text-align: center;">
       Notion 富文本编辑器
-      {{t('message.hello')}}
+      {{$t('hello')}}
     </h1>
     <div class="editor-wrap">
       <editor
-        ref="editor"
+        ref="editorRef"
         class="code-md"
         :initialized="onInitialized"
         @changeData="editorChange"
@@ -25,11 +29,12 @@ import { ref } from 'vue'
 import Editor, { parseHtml } from './index'
 import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n()
-console.log('i18n', t)
+const i18n = useI18n()
 
 const edjsParser = parseHtml()
 const editorHtml = ref('')
+const editorRef = ref(null)
+const lang = ref(i18n.locale.value)
 
 const data = {
   time: 1591362820044,
@@ -136,12 +141,19 @@ const data = {
   version: '2.18.0'
 }
 
+const switchLang = () => {
+  console.log(editorRef.value.initEditor)
+  i18n.locale.value = i18n.locale.value === 'zh' ? 'en' : 'zh'
+  lang.value = i18n.locale.value
+  editorRef.value.initEditor()
+}
+
 const editorChange = ({ html }) => {
   editorHtml.value = html
 }
 
-const onInitialized = (editor) => {
-  console.log(editor)
+const onInitialized = (value) => {
+
 }
 </script>
 

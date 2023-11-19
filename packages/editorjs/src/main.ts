@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createI18n } from 'vue-i18n'
+import i18n from './utils/i18n'
 import App from './App.vue'
 
 const messages = {
@@ -13,12 +14,10 @@ const messages = {
     message: {
       hello: '你好，世界',
       'Heading 2': '标题2',
-      blockTunes: {
-        header: {
-
-        }
-      },
       tools: {
+        toolNames: {
+          Bold: '加粗'
+        },
         header: {
 
         }
@@ -26,12 +25,12 @@ const messages = {
     }
   }
 }
-const i18n = createI18n({
-  legacy: false,
-  globalInjection: true,
+// const i18n = createI18n({
+//   legacy: false,
+//   globalInjection: true,
 
-  locale: 'cn',
-  messages
-})
+//   locale: 'cn',
+//   messages
+// })
 
 createApp(App).use(i18n).mount('#app')

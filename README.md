@@ -45,7 +45,7 @@ pnpm add dayjs --filter @editor-vue/examples
 
 vitepress-theme-demoblock
 
-
+vue3 editorjs 国际化调用
 ```js
 static t(s, e) {
     return ie._t(s, e);
