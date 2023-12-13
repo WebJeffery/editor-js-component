@@ -9,6 +9,6 @@
   },
   "include": [
     "typings/env.d.ts",
-    "packages/**/src"
+    "plugins/**/src"
   ],
 }

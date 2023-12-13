@@ -1,21 +1,25 @@
 {
-  "name": "vue3-editorjs",
+  "name": "@jeffery/vue3-editorjs",
   "version": "0.0.1",
-  "private": true,
-  "main": "lib/index.js",
-  "module": "lib/index.js",
+  "private": false,
+  "main": "dist/editorjs.umd.js",
+  "module": "dist/editorjs.es.js",
   "description": "",
   "keywords": [
     "editor-js",
     "vue"
   ],
+  "files": [
+    "dist"
+  ],
   "license": "ISC",
   "author": {
-    "name": "",
-    "email": ""
+    "name": "devjeffery",
+    "email": "xie1987458665@outlook.com"
   },
   "contributors": [],
   "scripts": {
+    "build": "vite build",
     "docs:dev": "vitepress dev docs",
     "docs:serve": "vitepress serve docs",
     "editorjs": "pnpm --filter vue3-editor-js dev",
@@ -76,5 +80,9 @@
     "packages/*",
     "examples",
     "docs"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }
