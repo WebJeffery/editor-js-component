@@ -1,53 +1,53 @@
-# 富文本编辑器
+# vue3-editor-js
 
-基于 Editor.js 封装的富文本组件
+基于 Editor.js 实现 Notion 风格富文本编辑器
 
 
-### 常用命令
+请先查看 [https://editorjs.io/](https://editorjs.io/)
 
-```bash
-# 安装依赖
-ppnpm install
-
-# 开发组件
-pnpm run dev
-
-# 开发文档
-pnpm run docs:dev
-
-# 部署文档
-pnpm run docs:deploy
-
-# 打包组件库
-pnpm run build:lib
-
-# 本地打包
-pnpm pack
-
-# 发布pnpm
-pnpm publish
-
-```
-
-### 安装插件依赖
-
-安装到根目录，使用参数 `-w`，如安装 `dayjs`
+## Installation
 
 ```shell
-pnpm add dayjs -w
+# NPM
+npm install --save editor-js-component
+
+# or Yarn
+yarn add veditor-js-component
+
+# or Pnpm
+pnpm add editor-js-component
 ```
 
-在子包安装依赖，使用 `-r`
+## Usage
 
-```shell
-pnpm add dayjs --filter @editor-vue/examples
-```
-
-vitepress-theme-demoblock
-
-vue3 editorjs 国际化调用
+### In main.js
 ```js
-static t(s, e) {
-    return ie._t(s, e);
-  }
-  ```
+// ...
+import { EditorJsVue } from 'editor-js-component'
+
+app.use(EditorJsVue)
+// ...
+```
+
+
+## Tools
+
+Supported tools
+Same as in Supported Plugins, but with different naming
+
+- header
+- list
+- code
+- inlineCode
+- personality
+- embed
+- linkTool
+- marker
+- table
+- raw
+- delimiter
+- quote
+- image
+- warning
+- paragraph
+- checklist

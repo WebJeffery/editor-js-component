@@ -19,19 +19,17 @@ export default {
     },
     popover: {
       Filter: '过滤',
-      'Nothing found': '找不到'
+      'Nothing found': '无数据'
     }
   },
   // Section for translation Tool Names: both block and inline tools
   toolNames: {
     Text: '段落',
     List: '列表',
-    H1: '标题1',
-    H2: '标题2',
-    H3: '标题3',
-    H4: '标题4',
-    H5: '标题5',
-    H6: '标题6',
+    'Heading 1': '标题1',
+    'Heading 2': '标题2',
+    'Heading 3': '标题3',
+    'Heading 4': '标题4',
     Button: '按钮',
     'Raw HTML': 'HTML 文本',
     Image: '图像',

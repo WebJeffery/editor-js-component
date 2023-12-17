@@ -14,7 +14,6 @@ import {
 
 // Block Tools for the Editor
 import EditorJS from '@editorjs/editorjs'
-import i18nMessage from './lang/zh'
 
 // 功能
 import Undo from 'editorjs-undo'
@@ -51,10 +50,10 @@ function initEditor() {
     readOnly: props.readonly,
     tools: toolPlugins,
     data: props.data,
-    inlineToolbar: ['bold', 'italic', 'link', 'underline', 'strikethrough', 'Color', 'Marker'],
+    // inlineToolbar: ['bold', 'italic', 'link', 'underline', 'strikethrough', 'Color', 'Marker'],
     // tunes: ['anchorTune'],
     i18n: {
-      messages: props.messages || i18nMessage
+      messages: props.messages
     },
     async onReady() {
       if (!props.readonly) {

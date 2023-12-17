@@ -118,6 +118,8 @@ importers:
 
   packages/anchor: {}
 
+  packages/annotation: {}
+
   packages/bold: {}
 
   packages/button: {}
@@ -126,6 +128,12 @@ importers:
 
   packages/editorjs:
     dependencies:
+      '@calumk/editorjs-columns':
+        specifier: ^0.3.1
+        version: 0.3.1
+      '@calumk/editorjs-nested-checklist':
+        specifier: ^1.1.0
+        version: 1.1.0
       '@codexteam/icons':
         specifier: ^0.3.0
         version: registry.npmjs.org/@codexteam/icons@0.3.0
@@ -195,24 +203,48 @@ importers:
       '@sotaproject/strikethrough':
         specifier: ^1.0.1
         version: 1.0.1
+      editorjs-alert:
+        specifier: ^1.1.3
+        version: 1.1.3
       editorjs-button:
         specifier: ^1.0.4
         version: r2.cnpmjs.org/editorjs-button@1.0.4
+      editorjs-change-case:
+        specifier: ^0.0.3
+        version: r2.cnpmjs.org/editorjs-change-case@0.0.3
       editorjs-drag-drop:
         specifier: ^1.1.13
         version: registry.npmjs.org/editorjs-drag-drop@1.1.13
       editorjs-html:
         specifier: ^3.4.3
         version: registry.npmjs.org/editorjs-html@3.4.3
+      editorjs-hyperlink:
+        specifier: ^1.0.6
+        version: r2.cnpmjs.org/editorjs-hyperlink@1.0.6
+      editorjs-plugin-annotation:
+        specifier: workspace:^
+        version: link:../annotation
       editorjs-plugin-header:
         specifier: workspace:^
         version: link:../header
+      editorjs-style:
+        specifier: ^3.0.3
+        version: 3.0.3
+      editorjs-table:
+        specifier: ^1.4.10
+        version: r2.cnpmjs.org/editorjs-table@1.4.10
       editorjs-text-alignment-blocktune:
         specifier: ^1.0.3
         version: r2.cnpmjs.org/editorjs-text-alignment-blocktune@1.0.3
       editorjs-text-color-plugin:
         specifier: ^2.0.4
         version: 2.0.4
+      editorjs-toggle-block:
+        specifier: ^0.3.14
+        version: 0.3.14
+      editorjs-tooltip:
+        specifier: ^1.1.15
+        version: 1.1.15
       editorjs-transform-html:
         specifier: workspace:^
         version: link:../transform-html
@@ -338,6 +370,18 @@ packages:
       '@babel/helper-validator-identifier': 7.22.20
       to-fast-properties: r2.cnpmjs.org/to-fast-properties@2.0.0
 
+  /@calumk/editorjs-columns@0.3.1:
+    resolution: {integrity: sha512-q7DaNnigQ2txDJXxZJXlwxy6F+a9iIafpbTLhT4wUXGRhqFvNeG15MOxezE82D2aKQBdKppRi0oblcE+a6s+8A==}
+    dependencies:
+      '@editorjs/editorjs': 2.28.2
+      sweetalert2: 11.10.1
+      uuid: r2.cnpmjs.org/uuid@8.3.2
+    dev: false
+
+  /@calumk/editorjs-nested-checklist@1.1.0:
+    resolution: {integrity: sha512-dNNQnpoP+gf+1hvkIl/MzrkVuVeIkT/R2pKfOkkLqUHgpan7UpKjaW43W0+tj2Ct85PzhoJV3wMIbTo1qVvFlg==}
+    dev: false
+
   /@codexteam/icons@0.0.2:
     resolution: {integrity: sha512-KdeKj3TwaTHqM3IXd5YjeJP39PBUZTb+dtHjGlf5+b0VgsxYD4qzsZkb11lzopZbAuDsHaZJmAYQ8LFligIT6Q==}
     dev: false
@@ -360,6 +404,10 @@ packages:
 
   /@codexteam/icons@0.3.0:
     resolution: {integrity: sha512-fJE9dfFdgq8xU+sbsxjH0Kt8Yeatw9xHBJWb77DhRkEXz3OCoIS6hrRC1ewHEryxzIjxD8IyQrRq2f+Gz3BcmA==}
+    dev: false
+
+  /@editorjs/editorjs@2.28.2:
+    resolution: {integrity: sha512-g6V0Nd3W9IIWMpvxDNTssQ6e4kxBp1Y0W4GIf8cXRlmcBp3TUjrgCYJQmNy3l2a6ZzhyBAoVSe8krJEq4g7PQw==}
     dev: false
 
   /@editorjs/link-autocomplete@0.1.0:
@@ -642,8 +690,26 @@ packages:
       domhandler: 5.0.3
     dev: true
 
+  /editorjs-alert@1.1.3:
+    resolution: {integrity: sha512-5z4Vsvu6hlJnSr0tI0Qj9wF/s0L6MNFX5C4SNKbv5CDyMxc6vCzH2bZkJk9QQ/wKQiRCXPrAlw93OlCylKQBNA==}
+    dev: false
+
+  /editorjs-style@3.0.3:
+    resolution: {integrity: sha512-Ur+lAu5g3oaGKzWh7oJx+DsjaUNAwKouHGJDbE6+ZCF6QTxNj8EjE22DQXjtX26qL1YHt54ku2sC3lhVhm8MKQ==}
+    dev: false
+
   /editorjs-text-color-plugin@2.0.4:
     resolution: {integrity: sha512-QpibTkOxs3ndlKNOLT8ZlC4ktc3/eKIajiLO0Jm/hh9AJug/CrM1/rAvHy+ldfUKavbWeI+YZvgjad0YTyoyGw==}
+    dev: false
+
+  /editorjs-toggle-block@0.3.14:
+    resolution: {integrity: sha512-TtpKv+bWr0vyLJ/4EdcXbvFeJul/Mx1fq/pycvxZxHxoUzVtK6EVAW6No1EwIc6cI40w9ZPnGUvltg8nkr6LOA==}
+    dependencies:
+      uuid: 9.0.1
+    dev: false
+
+  /editorjs-tooltip@1.1.15:
+    resolution: {integrity: sha512-W4EteuzDVct+iKkXPG/d679PTLDYuH7lzDGhGU4orcx75+casvmFgneOB32fiyrWsWNuGMr+qIC5O3tnlslwfw==}
     dev: false
 
   /entities@4.5.0:
@@ -707,6 +773,15 @@ packages:
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
+
+  /sweetalert2@11.10.1:
+    resolution: {integrity: sha512-qu145oBuFfjYr5yZW9OSdG6YmRxDf8CnkgT/sXMfrXGe+asFy2imC2vlaLQ/L/naZ/JZna1MPAY56G4qYM0VUQ==}
+    dev: false
+
+  /uuid@9.0.1:
+    resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
+    hasBin: true
+    dev: false
 
   /vite-plugin-css-injected-by-js@3.3.0(vite@4.4.5):
     resolution: {integrity: sha512-xG+jyHNCmUqi/TXp6q88wTJGeAOrNLSyUUTp4qEQ9QZLGcHWQQsCsSSKa59rPMQr8sOzfzmWDd8enGqfH/dBew==}
@@ -828,6 +903,24 @@ packages:
     version: 1.0.4
     dev: false
 
+  r2.cnpmjs.org/editorjs-change-case@0.0.3:
+    resolution: {integrity: sha512-1g5RueRFLGsvKNiKdpq9nLgn0xeHylXmXJLMqqobAhB7uNJ7N978vN1mKGgMSThxi4y6mU45aNYhBJy9xQFrZA==, registry: https://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/editorjs-change-case/-/editorjs-change-case-0.0.3.tgz}
+    name: editorjs-change-case
+    version: 0.0.3
+    dev: false
+
+  r2.cnpmjs.org/editorjs-hyperlink@1.0.6:
+    resolution: {integrity: sha512-E8UZA9AM3jPwMTE40ul4eGCFzH3+XoUR5YRCy5O1+Yrl5UZQXeJppZ0IHHKaNmHAikDN9dUbKGLabxXZkPRi9w==, registry: https://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/editorjs-hyperlink/-/editorjs-hyperlink-1.0.6.tgz}
+    name: editorjs-hyperlink
+    version: 1.0.6
+    dev: false
+
+  r2.cnpmjs.org/editorjs-table@1.4.10:
+    resolution: {integrity: sha512-jRpgqnimReXXtMLhjXWQ2M+qkOLNqCvKfoiExpZtzPThTFNtSPrE6WZ/HhTsOA2BMkZSejoLcf4KUYvRa5dZYw==, registry: https://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/editorjs-table/-/editorjs-table-1.4.10.tgz}
+    name: editorjs-table
+    version: 1.4.10
+    dev: false
+
   r2.cnpmjs.org/editorjs-text-alignment-blocktune@1.0.3:
     resolution: {integrity: sha512-DAJ2LJP+WjETvU4lVOJCqZ1kZkKHp0GkujkqZgza9DRv7bO46m1M/s2d5Ba5hPFdmqk1vA/ci++MQXgWD7mWYw==, registry: https://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/editorjs-text-alignment-blocktune/-/editorjs-text-alignment-blocktune-1.0.3.tgz}
     name: editorjs-text-alignment-blocktune
@@ -930,6 +1023,13 @@ packages:
     name: to-fast-properties
     version: 2.0.0
     engines: {node: '>=4'}
+
+  r2.cnpmjs.org/uuid@8.3.2:
+    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==, registry: https://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/uuid/-/uuid-8.3.2.tgz}
+    name: uuid
+    version: 8.3.2
+    hasBin: true
+    dev: false
 
   r2.cnpmjs.org/vue@3.1.1:
     resolution: {integrity: sha512-j9fj3PNPMxo2eqOKYjMuss9XBS8ZtmczLY3kPvjcp9d3DbhyNqLYbaMQH18+1pDIzzVvQCQBvIf774LsjjqSKA==, registry: https://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/vue/-/vue-3.1.1.tgz}

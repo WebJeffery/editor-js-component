@@ -1,4 +1,5 @@
 import EditorJsVue from './Editor.vue'
+import EditorJsParser from './components/EditorParser.vue'
 
 EditorJsVue.install = function (app) {
   // 注册全局组件
@@ -6,4 +7,7 @@ EditorJsVue.install = function (app) {
 }
 
 // 注册插件
-export default EditorJsVue
+export {
+  EditorJsVue,
+  EditorJsParser
+}
