@@ -1,11 +1,9 @@
-import VueEditorJs from './Editor.vue'
+import EditorJsVue from './Editor.vue'
 
-export * from './utils'
-
-VueEditorJs.install = function (app) {
+EditorJsVue.install = function (app) {
   // 注册全局组件
-  app.component('EditorJsVue', VueEditorJs)
+  app.component('EditorJsVue', EditorJsVue)
 }
 
 // 注册插件
-export default VueEditorJs
+export default EditorJsVue

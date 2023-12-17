@@ -1,8 +1,16 @@
 {
-  "name": "@editor-js/header",
+  "name": "editorjs-plugin-header",
   "version": "0.0.1",
   "license": "MIT",
-  "main": "index.ts",
+  "files": ["src"],
+  "main": "src/index.ts",
   "module": "src/index.js",
-  "types": "index.d.ts"
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }

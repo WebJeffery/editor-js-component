@@ -1,5 +1,5 @@
 {
-  "name": "@editor-js-vue/image",
+  "name": "@editorjs-plugin/image",
   "version": "0.0.1",
   "license": "MIT",
   "main": "index.ts",

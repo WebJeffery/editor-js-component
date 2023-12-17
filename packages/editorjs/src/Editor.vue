@@ -1,8 +1,7 @@
 <template>
   <div
     :id="holder"
-    class="editor-md-wrap"
-    :class="customClass"
+    class="editor-js-vue"
   ></div>
 </template>
 
@@ -15,48 +14,26 @@ import {
 
 // Block Tools for the Editor
 import EditorJS from '@editorjs/editorjs'
-import Header from '@editor-js/header'
-// import Header from '@editorjs/header'
-import Paragraph from '@editorjs/paragraph'
-import List from '@editorjs/list'
-import CodeTool from '@editorjs/code'
-import Embed from '@editorjs/embed'
-import Table from '@editorjs/table'
-import Checklist from '@editorjs/checklist'
-import Marker from '@editorjs/marker'
-import Warning from '@editorjs/warning'
-import RawTool from '@editorjs/raw'
-import Quote from '@editorjs/quote'
-import InlineCode from '@editorjs/inline-code'
-import Delimiter from '@editorjs/delimiter'
-import Image from '@editorjs/image'
-import SimpleImage from '@editorjs/simple-image'
-import { EdjsParser, parserCss } from 'editorjs-transform-html'
-
-import {
-  IconH1,
-  IconH2,
-  IconH3,
-  IconH4,
-  IconH5,
-  IconH6
-  // IconHeading
-} from '@codexteam/icons'
+import i18nMessage from './lang/zh'
 
 // 功能
 import Undo from 'editorjs-undo'
 import DragDrop from 'editorjs-drag-drop'
-import { useI18n } from 'vue-i18n'
-import { PropsType } from './type'
 
-const { t } = useI18n()
+import { EditorType } from './type'
 
-const props = withDefaults(defineProps<PropsType>(), {
+import {
+  getEditorTools
+} from './utils/plugin'
+
+const props = withDefaults(defineProps<EditorType>(), {
   holder: 'vue-editor-js',
-  tool: () => ['header', 'h1'],
-  data: () => ({}),
-  customTool: () => ({}),
-  editorConfig: () => ({})
+  blockToolbar: () => [], // 工具栏，启用、排序插件
+  customPlugin: () => ({}), // 扩展插件
+  pluginConfig: () => ({}), // 插件配置
+  editorConfig: () => ({}), // 编辑器其他配置
+  disablePlugin: () => [], // 禁用工具栏
+  data: () => ({}) // 渲染数据
 })
 
 const emit = defineEmits<{
@@ -65,318 +42,61 @@ const emit = defineEmits<{
 }>()
 
 const state = reactive({ editor: null })
+const toolPlugins = getEditorTools(props)
 
 function initEditor() {
-  destroyEditor()
-  const defaultConfig = {
-    h1: {
-      class: Header,
-      config: {
-        // levels: [2, 3, 4, 5, 6], // 可转化的标题类型
-        defaultLevel: 1 // 默认标题
-      },
-      toolbox: {
-        icon: IconH1,
-        title: 'H1'
-      }
-    },
-    h2: {
-      class: Header,
-      config: {
-        defaultLevel: 2
-      },
-      toolbox: {
-        icon: IconH2,
-        title: 'H2'
-      }
-    },
-    h3: {
-      class: Header,
-      config: {
-        defaultLevel: 3
-      },
-      toolbox: {
-        icon: IconH3,
-        title: 'H3'
-      }
-    },
-    h4: {
-      class: Header,
-      config: {
-        defaultLevel: 4
-      },
-      toolbox: {
-        icon: IconH4,
-        title: 'H4'
-      }
-    },
-    h5: {
-      class: Header,
-      config: {
-        defaultLevel: 5
-      },
-      toolbox: {
-        icon: IconH5,
-        title: 'H5'
-      }
-    },
-    h6: {
-      class: Header,
-      config: {
-        defaultLevel: 6
-      },
-      toolbox: {
-        icon: IconH6,
-        title: 'H6'
-      }
-    },
-    paragraph: {
-      class: Paragraph,
-      inlineToolbar: true,
-      config: {
-        placeholder: 'Press Tab to select a Block'
-      }
-      // toolbox: {
-      //   title: '段落'
-      // }
-    },
-    list: {
-      class: List
-    },
-    code: {
-      class: CodeTool
-    },
-    embed: {
-      class: Embed,
-      config: {
-        services: {
-          youtube: true,
-          coub: true,
-          imgur: true
-        }
-      }
-    },
-    table: {
-      class: Table,
-      config: {
-        rows: 2,
-        cols: 3
-      }
-    },
-    checklist: {
-      class: Checklist
-    },
-    Marker: {
-      class: Marker,
-      shortcut: 'CMD+SHIFT+M'
-    },
-    warning: {
-      class: Warning,
-      inlineToolbar: true,
-      shortcut: 'CMD+SHIFT+W',
-      config: {
-        titlePlaceholder: 'Title',
-        messagePlaceholder: 'Message'
-      }
-    },
-    raw: RawTool,
-    quote: {
-      class: Quote,
-      inlineToolbar: true,
-      shortcut: 'CMD+SHIFT+O',
-      config: {
-        quotePlaceholder: 'Enter a quote',
-        captionPlaceholder: 'Quote\'s author'
-      }
-    },
-    // inlineCode: {
-    //   class: InlineCode,
-    //   shortcut: 'CMD+SHIFT+M',
-    // },
-    image: {
-      class: Image,
-      inlineToolbar: true,
-      config: {
-        types: 'image/*, video/mp4',
-        endpoints: {
-          byFile: '/api/transport/image',
-          byUrl: '/api/transport/fetch'
-        }
-      }
-    },
-    delimiter: {
-      class: Delimiter,
-      inlineToolbar: true
-    }
-    // image: SimpleImage
-  }
-
-  const edjsParser = new EdjsParser()
-
-  console.log(parserCss())
-
   state.editor = new EditorJS({
-    holder: props.holder || 'vue-editor-js',
-    tools: Object.assign(defaultConfig, props.customTool),
-    data: props.data || {},
+    holder: props.holder,
+    autofocus: true,
+    readOnly: props.readonly,
+    tools: toolPlugins,
+    data: props.data,
+    inlineToolbar: ['bold', 'italic', 'link', 'underline', 'strikethrough', 'Color', 'Marker'],
+    // tunes: ['anchorTune'],
     i18n: {
-      messages: {
-        ui: {
-          blockTunes: {
-            toggler: {
-              'Click to tune': '点击转换'
-              // "or drag to move": "拖拽移动"
-            }
-          },
-          inlineToolbar: {
-            converter: {
-              'Convert to': '内部转换'
-            }
-          },
-          // Translations of internal UI components of the editor.js core
-          toolbar: {
-            toolbox: {
-              Add: '工具栏添加'
-            }
-          },
-          popover: {
-            Filter: '过滤',
-            'Nothing found': '找不到',
-            'Heading 2': '标题2'
+      messages: props.messages || i18nMessage
+    },
+    async onReady() {
+      if (!props.readonly) {
+        // 撤销重做
+        new Undo({
+          editor: state.editor,
+          maxLength: 50,
+          config: {
+            shortcuts: {
+              undo: 'CMD+Z',
+              redo: 'CMD+Y'
+            },
+            debounceTimer: 500
           }
-        },
-        // Section for translation Tool Names: both block and inline tools
-        toolNames: {
-          Text: t('tool.paragraph'),
-          List: '列表',
-          H1: '标题1444',
-          H2: '标题2',
-          H3: '标题3',
-          H4: '标题4',
-          H5: '标题5',
-          H6: '标题6',
-          // Bold: '加粗',
-          Italic: '斜体',
-          Link: '链接',
-          Marker: '标记'
-        },
-        /**
-         * Section for passing translations to the external tools classes
-         */
-        tools: {
-          h1: {
-            'Heading 1': '标题1',
-            'Heading 2': '标题2',
-            'Heading 3': '标题3',
-            'Heading 4': '标题4',
-            'Heading 5': '标题5',
-            'Heading 6': '标题6'
-          },
-          h2: {
-            'Heading 1': '标题1',
-            'Heading 2': '标题2',
-            'Heading 3': '标题3',
-            'Heading 4': '标题4',
-            'Heading 5': '标题5',
-            'Heading 6': '标题6'
-          },
-          h3: {
-            'Heading 1': '标题1',
-            'Heading 2': '标题2',
-            'Heading 3': '标题3',
-            'Heading 4': '标题4',
-            'Heading 5': '标题5',
-            'Heading 6': '标题6'
-          },
-          h4: {
-            'Heading 1': '标题1',
-            'Heading 2': '标题2',
-            'Heading 3': '标题3',
-            'Heading 4': '标题4',
-            'Heading 5': '标题5',
-            'Heading 6': '标题6'
-          },
-          h5: {
-            'Heading 1': '标题1',
-            'Heading 2': '标题2',
-            'Heading 3': '标题3',
-            'Heading 4': '标题4',
-            'Heading 5': '标题5',
-            'Heading 6': '标题6'
-          },
-          h6: {
-            'Heading 1': '标题1',
-            'Heading 2': '标题2',
-            'Heading 3': '标题3',
-            'Heading 4': '标题4',
-            'Heading 5': '标题5',
-            'Heading 6': '标题6'
-          },
-          header: {
-            'Heading 1': '标题1',
-            'Heading 2': '标题2',
-            'Heading 3': '标题3',
-            'Heading 4': '标题4',
-            'Heading 5': '标题5',
-            'Heading 6': '标题6'
-          },
-          link: {
-            'Add a link': '添加链接'
-          },
-          code: {
-            'Enter a code': '输入代码'
-          },
-          list: {
-            Ordered: '有序列表',
-            Unordered: '无序列表'
-          }
-          // header: {
-          // }
-        },
-        // Section allows to translate Block Tunes
-        blockTunes: {
-          delete: {
-            Delete: '删除'
-          },
-          moveUp: {
-            'Move up': '上移'
-          },
-          moveDown: {
-            'Move down': '下移'
-          }
-        }
+        })
+        // 拖拽
+        new DragDrop(state.editor)
       }
     },
-    onReady() {
-      // 撤销重做
-      new Undo({
-        editor: state.editor,
-        config: {
-          shortcuts: {
-            undo: 'CMD+X',
-            redo: 'CMD+Y'
-          },
-          debounceTimer: 100
-        }
-      })
-      // 拖拽
-      new DragDrop(state.editor)
-    },
-    async onChange(argv) {
+    async onChange(api, event) {
       const json = await state.editor.save()
-      const html = edjsParser.parserHtml(json)
-      console.log(html)
 
       emit('changeData', {
         json,
-        html,
-        editor: argv
+        editor: api,
+        event
       })
-    }
-    // ...props.editorConfig
+    },
+    ...props.editorConfig
   })
+}
 
-  props.initialized(state.editor)
+// refresh editor render
+const refreshEditor = async () => {
+  const saveData = await state.editor?.save()
+
+  destroyEditor()
+  initEditor()
+
+  state.editor?.isReady.then(() => {
+    if (saveData?.blocks.length) state.editor?.render(saveData!)
+  })
 }
 
 function destroyEditor() {
@@ -387,10 +107,13 @@ function destroyEditor() {
 }
 
 defineExpose({
-  initEditor
+  refreshEditor
 })
 
-onMounted(() => initEditor(props))
+onMounted(() => {
+  initEditor()
+  props.initialized?.(state.editor)
+})
 
 </script>
 

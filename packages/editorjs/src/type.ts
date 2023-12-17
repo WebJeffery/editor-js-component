@@ -1,10 +1,18 @@
-export interface PropsType {
-  holder: string // 类样式
-  tool?: (string | object)[] // 工具栏
-  customTool?: object // 自定义工具栏
-  data: object
-  editorConfig: object
-  initialized?: Function
+export interface EditorType {
+  holder?: string // id占位符
+  readonly?: boolean // id占位符
+  blockToolbar?: string[] // 块工具栏排序
+  customPlugin?: object // 自定义工具栏
+  pluginConfig?: object // 工具栏配置，深度合并
+  editorConfig?: object // 编辑器配置
+  disablePlugin?: string[] // 导航栏工具
+  data?: object // 渲染数据
+  initialized?: Function // 初始化函数
+  messages?: object // 国际化
+}
+
+export interface PreviewType {
+
 }
 
 type ListItem = {

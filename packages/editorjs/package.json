@@ -1,5 +1,5 @@
 {
-  "name": "vue3-editor-js",
+  "name": "editor-js-component",
   "keywords": [
     "editorjs"
   ],
@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@codexteam/icons": "^0.3.0",
-    "@editor-js/header": "workspace:^",
+    "@editorjs-plugin/header": "workspace:^",
     "@editorjs/checklist": "^1.6.0",
     "@editorjs/code": "^2.8.0",
     "@editorjs/delimiter": "^1.3.0",
@@ -29,17 +29,24 @@
     "@editorjs/image": "^2.8.2",
     "@editorjs/inline-code": "^1.4.0",
     "@editorjs/link": "^2.6.2",
+    "@editorjs/link-autocomplete": "^0.1.0",
     "@editorjs/list": "^1.9.0",
     "@editorjs/marker": "^1.3.0",
+    "@editorjs/nested-list": "^1.4.2",
     "@editorjs/paragraph": "^2.11.3",
     "@editorjs/quote": "^2.5.0",
     "@editorjs/raw": "^2.4.0",
     "@editorjs/simple-image": "^1.5.1",
     "@editorjs/table": "^2.3.0",
+    "@editorjs/underline": "^1.1.0",
     "@editorjs/warning": "^1.3.0",
     "@element-plus/utils": "^0.0.5",
+    "@sotaproject/strikethrough": "^1.0.1",
+    "editorjs-button": "^1.0.4",
     "editorjs-drag-drop": "^1.1.13",
     "editorjs-html": "^3.4.3",
+    "editorjs-text-alignment-blocktune": "^1.0.3",
+    "editorjs-text-color-plugin": "^2.0.4",
     "editorjs-transform-html": "workspace:^",
     "editorjs-undo": "^2.0.26"
   }

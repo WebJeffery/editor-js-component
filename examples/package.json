@@ -1,5 +1,5 @@
 {
-  "name": "@editor-js-vue/examples",
+  "name": "@editor-js/examples",
   "private": true,
   "scripts": {
     "dev": "vite dev"

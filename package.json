@@ -1,5 +1,5 @@
 {
-  "name": "@jeffery/vue3-editorjs",
+  "name": "editor-js",
   "version": "0.0.1",
   "private": false,
   "main": "dist/editorjs.umd.js",
@@ -19,12 +19,12 @@
   },
   "contributors": [],
   "scripts": {
-    "build": "vite build",
+    "dev": "pnpm --filter @editor-js/examples dev",
     "docs:dev": "vitepress dev docs",
     "docs:serve": "vitepress serve docs",
-    "editorjs": "pnpm --filter vue3-editor-js dev",
-    "editorjs:build": "pnpm --filter vue3-editor-js build",
-    "editorjs:preview": "pnpm --filter vue3-editor-js preview",
+    "editorjs": "pnpm --filter editor-js-component dev",
+    "editorjs:build": "pnpm --filter editor-js-component build",
+    "editorjs:preview": "pnpm --filter editor-js-component preview",
     "commit": "git-cz",
     "standard-version": "standard-version",
     "changelog": "npx conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
@@ -68,7 +68,7 @@
   "dependencies": {
     "element-plus": "^2.4.2",
     "vue-i18n": "^9.4.1",
-    "vue3-editor-js": "workspace:*"
+    "editor-js-component": "workspace:*"
   },
   "peerDependencies": {
     "vue": "^3.3.4"

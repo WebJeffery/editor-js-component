@@ -4,7 +4,7 @@
 import './index.css'
 
 import {
-  IconH1, IconH2, IconH3, IconH4, IconH5, IconH6, IconHeading
+  IconH1, IconH2, IconH3, IconH4, IconH5, IconH6, IconHeading, IconText
 } from '@codexteam/icons'
 
 /**
@@ -41,10 +41,11 @@ export default class Header {
    *   readOnly - read only mode flag
    */
   constructor({
-    data, config, api, readOnly
+    data, config, api, readOnly, block
   }) {
     this.api = api
     this.readOnly = readOnly
+    this.block = block
 
     /**
      * Styles
@@ -118,9 +119,10 @@ export default class Header {
    * @returns {Array}
    */
   renderSettings() {
+    debugger
     return this.levels.map((level) => ({
       icon: level.svg,
-      label: this.api.i18n.t(`Heading ${level.number}`),
+      label: this.api.i18n.t(level.name),
       onActivate: () => this.setLevel(level.number),
       closeOnActivate: true,
       isActive: this.currentLevel.number === level.number
@@ -133,10 +135,18 @@ export default class Header {
    * @param {number} level - level to set
    */
   setLevel(level) {
+    if (level === 'paragraph') {
+      this.convertBlock(level)
+      return
+    }
     this.data = {
       level,
       text: this.data.text
     }
+  }
+
+  convertBlock(name) {
+    this.api.blocks.convert(this.block.id, name)
   }
 
   /**
@@ -365,39 +375,54 @@ export default class Header {
     const availableLevels = [
       {
         number: 1,
+        name: 'Heading 1',
         tag: 'H1',
         svg: IconH1
       },
       {
         number: 2,
+        name: 'Heading 2',
         tag: 'H2',
         svg: IconH2
       },
       {
         number: 3,
+        name: 'Heading 3',
         tag: 'H3',
         svg: IconH3
       },
       {
         number: 4,
+        name: 'Heading 4',
         tag: 'H4',
         svg: IconH4
       },
       {
         number: 5,
+        name: 'Heading 5',
         tag: 'H5',
         svg: IconH5
       },
       {
         number: 6,
+        name: 'Heading 6',
         tag: 'H6',
         svg: IconH6
       }
     ]
 
-    return this._settings.levels ? availableLevels.filter(
+    const headerLevel = this._settings.levels ? availableLevels.filter(
       (l) => this._settings.levels.includes(l.number)
     ) : availableLevels
+
+    headerLevel.unshift({
+      number: 'paragraph',
+      name: 'Paragraph',
+      tag: 'p',
+      svg: IconText
+    })
+
+    return headerLevel
   }
 
   /**
