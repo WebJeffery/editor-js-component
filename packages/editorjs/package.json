@@ -8,7 +8,7 @@
   "version": "0.0.1",
   "type": "module",
   "main": "dist/editorjs.umd.js",
-  "module": "./src/index.ts",
+  "module": "./dist/editorjs.es.js",
   "files": [
     "dist"
   ],

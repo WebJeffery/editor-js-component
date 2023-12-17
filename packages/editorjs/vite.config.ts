@@ -9,7 +9,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: 'src/index.ts', // 你的入口文件路径
-      name: 'VueEditorjs', // 你的库名称
+      name: 'EditorJsVue', // 你的库名称
       fileName: (format) => `editorjs.${format}.js` // 打包后的文件名
     },
     sourcemap: true, // 输出.map文件

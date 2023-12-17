@@ -118,7 +118,11 @@ importers:
 
   packages/anchor: {}
 
-  packages/annotation: {}
+  packages/annotation:
+    dependencies:
+      '@codexteam/icons':
+        specifier: ^0.3.0
+        version: 0.3.0
 
   packages/bold: {}
 
