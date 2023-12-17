@@ -119,7 +119,6 @@ export default class Header {
    * @returns {Array}
    */
   renderSettings() {
-    debugger
     return this.levels.map((level) => ({
       icon: level.svg,
       label: this.api.i18n.t(level.name),

@@ -1,0 +1,4 @@
+.image-tool {--bg-color:#cdd1e0;--front-color:#388ae5;--border-color:#e8e8eb}
+.image-tool--withBorder .image-tool__image {border:1px solid var(--border-color)}
+.image-tool__image {border-radius:3px;overflow:hidden;/* margin-bottom:10px */}
+.image-tool__image-picture {max-width:100%;vertical-align:bottom;display:inline-block;}

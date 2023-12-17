@@ -6,7 +6,7 @@ import {
   // IconHeading
 } from '@codexteam/icons'
 import Paragraph from '@editorjs/paragraph'
-import Header from '@editorjs-plugin/header'
+import Header from 'editorjs-plugin-header'
 import List from '@editorjs/nested-list'
 import Button from 'editorjs-button'
 import ColorPlugin from 'editorjs-text-color-plugin'
@@ -34,7 +34,7 @@ export const getEditorPlugins = (customPlugin) => ({
   h1: {
     class: Header,
     tunes: ['alignBlockTune'],
-    inlineToolbar: true,
+    inlineToolbar: ['link'],
     config: {
       defaultLevel: 1, // 默认标题
       levels: [1, 2, 3, 4]

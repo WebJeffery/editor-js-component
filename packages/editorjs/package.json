@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "@codexteam/icons": "^0.3.0",
-    "@editorjs-plugin/header": "workspace:^",
     "@editorjs/checklist": "^1.6.0",
     "@editorjs/code": "^2.8.0",
     "@editorjs/delimiter": "^1.3.0",
@@ -45,6 +44,7 @@
     "editorjs-button": "^1.0.4",
     "editorjs-drag-drop": "^1.1.13",
     "editorjs-html": "^3.4.3",
+    "editorjs-plugin-header": "workspace:^",
     "editorjs-text-alignment-blocktune": "^1.0.3",
     "editorjs-text-color-plugin": "^2.0.4",
     "editorjs-transform-html": "workspace:^",

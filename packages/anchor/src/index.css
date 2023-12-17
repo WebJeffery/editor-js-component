@@ -1,0 +1,29 @@
+.cdx-anchor-tune-wrapper {
+  background: rgba(232, 232, 235, .49);
+  border: 1px solid rgba(201,201,204,.48);
+  border-radius: 6px;
+  padding: 3px 2px;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  grid-template-rows: auto;
+}
+
+.cdx-anchor-tune-icon {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cdx-anchor-tune-icon svg {
+  vertical-align: baseline;
+}
+
+.cdx-anchor-tune-input {
+  width: 100%;
+  border: 0;
+  box-sizing: border-box;
+  outline: none;
+  background-color: initial;
+}

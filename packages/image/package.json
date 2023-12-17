@@ -1,5 +1,5 @@
 {
-  "name": "@editorjs-plugin/image",
+  "name": "editorjs-plugin-image",
   "version": "0.0.1",
   "license": "MIT",
   "main": "index.ts",

@@ -24,6 +24,8 @@
     "docs:serve": "vitepress serve docs",
     "editorjs": "pnpm --filter editor-js-component dev",
     "editorjs:build": "pnpm --filter editor-js-component build",
+    "build:packages": "cross-env NODE_ENV=production npm run clean:packages && vite build --base=./packages/",
+    "clean:packages": "rimraf packages/*/dist",
     "editorjs:preview": "pnpm --filter editor-js-component preview",
     "commit": "git-cz",
     "standard-version": "standard-version",
@@ -66,9 +68,11 @@
     "vue-tsc": "^1.8.5"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
+    "editor-js-component": "workspace:*",
     "element-plus": "^2.4.2",
-    "vue-i18n": "^9.4.1",
-    "editor-js-component": "workspace:*"
+    "vite-plugin-css-injected-by-js": "^3.3.0",
+    "vue-i18n": "^9.4.1"
   },
   "peerDependencies": {
     "vue": "^3.3.4"

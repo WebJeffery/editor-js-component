@@ -1,10 +1,15 @@
 {
   "name": "editorjs-plugin-header",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
-  "files": ["src"],
-  "main": "src/index.ts",
-  "module": "src/index.js",
+  "files": [
+    "src"
+  ],
+  "main": "./dist/header.umd.js",
+  "module": "./dist/header.mjs",
+  "scripts": {
+    "build": "vite build"
+  },
   "repository": {
     "type": "git",
     "url": ""
@@ -12,5 +17,8 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "@codexteam/icons": "^0.3.0"
   }
 }
