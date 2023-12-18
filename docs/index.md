@@ -3,21 +3,21 @@
 layout: home
 
 hero:
-  name: "Editor.js 富文本"
+  name: "Editor.js 富文本组件"
   # text: "基于Element-plus组件库"
-  tagline: notion 富文本编辑器
+  tagline: Notion 风格富文本编辑器
   actions:
     - theme: brand
-      text: 组件
-      link: /element-plus/button
+      text: 插件
+      link: /plugins
     - theme: alt
-      text: API 参考
-      link: /api-examples
+      text: Demo 示例
+      link: /playground
 
 features:
   - title: 快速开发
     details: 
-  - title: 组件丰富
+  - title: 丰富插件
     details: 
   - title: 快捷的使用
     details: 

@@ -7,7 +7,7 @@
   "private": false,
   "version": "0.0.1",
   "type": "module",
-  "main": "dist/editorjs.umd.js",
+  "main": "./dist/editorjs.umd.js",
   "module": "./dist/editorjs.es.js",
   "files": [
     "dist"

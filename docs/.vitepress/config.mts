@@ -7,8 +7,8 @@ import sidebar from './configs/sidebar.mts'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Figcube UI 库",
-  description: "基于Element-plus组件库",
+  title: "Editor.js",
+  description: "基于 Editor.js 富文本组件",
 
   markdown: {
     theme: { light: 'github-light', dark: 'github-dark' },
@@ -23,7 +23,7 @@ export default defineConfig({
       port: 7790
     },
     plugins: [
-      // demoblockVitePlugin(), 
+      // demoblockVitePlugin(),
       vueJsx()
     ],
     // resolve: {
