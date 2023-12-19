@@ -4,9 +4,7 @@
 :::demo
 ```html
 <template>
-  <ClientOnly>
-    <EditorDemo></EditorDemo>
-  </ClientOnly>
+  文档
 </template>
 ```
 :::
