@@ -27,11 +27,11 @@ body {
   direction: ltr;
 }
 
-.Layout .VPContent .container,
+/* .Layout .VPContent .container,
 .Layout .VPContent .content,
 .Layout .VPContent .content-container {
   max-width: unset!important;
-}
+} */
 
 
 /* vp-doc style */

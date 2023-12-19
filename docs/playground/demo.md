@@ -4,7 +4,9 @@
 :::demo
 ```html
 <template>
-  <EditorDemo></EditorDemo>
+  <ClientOnly>
+    <EditorDemo></EditorDemo>
+  </ClientOnly>
 </template>
 ```
 :::
