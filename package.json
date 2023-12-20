@@ -21,8 +21,8 @@
   "scripts": {
     "dev": "pnpm --filter @editor-js/examples dev",
     "docs:dev": "vitepress dev docs",
-    "docs:serve": "vitepress serve docs",
     "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
     "editorjs": "pnpm --filter editor-js-component dev",
     "editorjs:build": "pnpm --filter editor-js-component build",
     "build:packages": "cross-env NODE_ENV=production npm run clean:packages && vite build --base=./packages/",
@@ -35,7 +35,6 @@
     "lint:ls-lint": "ls-lint",
     "lint:lint-staged": "lint-staged -c ./.husky/lint-staged.config.js",
     "lint:eslint": "eslint --ext \\packages\\.js --ext \\examples\\.js --ext \\src\\.js --fix",
-    "docs:preview": "vitepress preview docs",
     "preinstall": "npx only-allow pnpm"
   },
   "devDependencies": {
