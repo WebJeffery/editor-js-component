@@ -22,7 +22,7 @@
     "dev": "pnpm --filter @editor-js/examples dev",
     "docs:dev": "vitepress dev docs",
     "docs:serve": "vitepress serve docs",
-    "docs:build": "vitepress build docs --base /vue3-editor-js/",
+    "docs:build": "vitepress build docs",
     "editorjs": "pnpm --filter editor-js-component dev",
     "editorjs:build": "pnpm --filter editor-js-component build",
     "build:packages": "cross-env NODE_ENV=production npm run clean:packages && vite build --base=./packages/",
