@@ -43,6 +43,6 @@ jobs:
           # 指定仓库：你要发布的仓库路径名
           repository-name: WebJeffery/vue3-editor-js
           # 部署到 deploy-pages 分支，也就是部署后提交到那个分支
-          branch: gh-pages
+          branch: deploy-pages
           # 填写打包好的目录名称路径，本项目配置在根目录
-          folder: /dist
+          folder: dist
