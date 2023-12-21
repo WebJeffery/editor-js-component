@@ -1,7 +1,0 @@
-{
-  "name": "@editor-js/examples",
-  "private": true,
-  "scripts": {
-    "dev": "vite dev"
-  }
-}

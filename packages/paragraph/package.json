@@ -1,8 +1,0 @@
-{
-  "name": "editorjs-plugin-paragraph",
-  "version": "0.0.1",
-  "license": "MIT",
-  "files": ["src"],
-  "main": "src/index.js",
-  "module": "src/index.js"
-}
