@@ -11,7 +11,7 @@ hero:
       text: 插件
       link: /plugins
     - theme: alt
-      text: Demo 示例
+      text: Demo 案例
       link: /playground
 
 features:
