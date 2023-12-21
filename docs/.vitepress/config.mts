@@ -9,6 +9,8 @@ import sidebar from './configs/sidebar.mts'
 export default defineConfig({
   title: "Editor.js",
   description: "基于 Editor.js 富文本组件",
+  outDir: "../dist",
+  base: "/vue3-editor-js/",
 
   markdown: {
     theme: { light: 'github-light', dark: 'github-dark' },
@@ -40,7 +42,7 @@ export default defineConfig({
     sidebar,
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/WebJeffery/vue3-editor-js' }
     ]
   }
 })

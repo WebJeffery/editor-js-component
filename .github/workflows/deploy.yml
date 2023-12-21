@@ -1,66 +1,47 @@
-# Sample workflow for building and deploying a VitePress site to GitHub Pages
-#
-name: Deploy VitePress site to Pages
+name: GitHub Actions Build and Deploy
 
 on:
-  # Runs on pushes targeting the `main` branch. Change this to `master` if you're
-  # using the `master` branch as the default branch.
-  push:
-    branches: [master]
-
-  # Allows you to run this workflow manually from the Actions tab
+  # 手动运行工作流程（workflow_dispatch 事件触发器配置后可以在actions下手动运行工作流）
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: pages
-  cancel-in-progress: false
-
 jobs:
-  # Build job
-  build:
-    runs-on: ubuntu-latest
+  build-and-deploy:
+    runs-on: ubuntu-latest  #指定服务器的运行环境：最新版本ubuntu
     steps:
+      # 使用actions/checkout@v4 库拉取代码到 ubuntu 上
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Not needed if lastUpdated is not enabled
-      # - uses: pnpm/action-setup@v2 # Uncomment this if you're using pnpm
-      # - uses: oven-sh/setup-bun@v1 # Uncomment this if you're using Bun
-      - name: Setup Node
+          # 根据网上资料查询此处可以设置为 false。https://github.com/actions/checkout
+          persist-credentials: false
+
+      # 安装 pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      # 设置node的版本
+      - name: Use Node.js
+        # 使用 actions/setup-node@v3 库安装 nodejs，with 提供了一个参数 node-version 表示要安装的 nodejs 版本
         uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache: npm # or pnpm / yarn
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Install dependencies
-        run: pnpm install # or pnpm install / yarn install / bun install
-      - name: Build with VitePress
-        run: |
-          pnpm docs:build # or pnpm docs:build / yarn docs:build / bun run docs:build
-          touch docs/.vitepress/dist/.nojekyll
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: docs/.vitepress/dist
+          node-version: '18.x'
+          cache: 'pnpm'
 
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+      # 打包成静态文件
+      - name: Build
+        run: pnpm install && pnpm build:docs
+
+      # 部署到GitHub Pages - 也就是将打包内容发布到GitHub Pages
+      - name: Deploy
+        # 使用别人写好的 actions去部署（将打包文件部署到指定分支上）
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        # 自定义环境变量
+        with:
+          # 指定仓库：你要发布的仓库路径名
+          repository-name: WebJeffery/vue3-editor-js
+          # 部署到 deploy-pages 分支，也就是部署后提交到那个分支
+          branch: deploy-pages
+          # 填写打包好的目录名称路径，本项目配置在根目录
+          folder: dist
