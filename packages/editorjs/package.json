@@ -5,7 +5,7 @@
   ],
   "author": "",
   "private": false,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "main": "./dist/editorjs.umd.js",
   "module": "./dist/editorjs.es.js",
@@ -47,15 +47,12 @@
     "editorjs-drag-drop": "^1.1.13",
     "editorjs-html": "^3.4.3",
     "editorjs-hyperlink": "^1.0.6",
-    "editorjs-plugin-annotation": "workspace:^",
-    "editorjs-plugin-header": "workspace:^",
     "editorjs-style": "^3.0.3",
     "editorjs-table": "^1.4.10",
     "editorjs-text-alignment-blocktune": "^1.0.3",
     "editorjs-text-color-plugin": "^2.0.4",
     "editorjs-toggle-block": "^0.3.14",
     "editorjs-tooltip": "^1.1.15",
-    "editorjs-transform-html": "workspace:^",
     "editorjs-undo": "^2.0.26"
   }
 }

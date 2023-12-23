@@ -1,11 +1,16 @@
-# editor-js-composition
+# Editorjs Component
 
-基于 Editor.js 实现 Notion 风格富文本编辑器
+editor-js-component is an editorjs wrapper component that can use Vue and React frameworks
 
 
-请先查看 [https://editorjs.io/](https://editorjs.io/)
+Please review this first. [https://editorjs.io/](https://editorjs.io/)
 
-## Installation
+
+[Demo示例](https://vue-p4wjes.stackblitz.io)
+
+## editor-js-component
+
+### Installation
 
 ```shell
 # NPM
@@ -18,21 +23,88 @@ yarn add veditor-js-component
 pnpm add editor-js-component
 ```
 
-## Usage
+### Usage
 
-### In main.js
 ```js
-// ...
-import { EditorJsVue } from 'editor-js-component'
+import { useEditorjs } from 'editor-js-component'
 
-app.use(EditorJsVue)
-// ...
+const editorInstance = useEditorjs({
+  holder, 
+  readonly,
+  autofocus,
+  blockToolbar,
+  customPlugin,
+  pluginConfig,
+  editorConfig,
+  disablePlugin,
+  data,
+  messages,
+  editorjs: null,
+  onStart: ({ data }) => {
+    
+  },
+  onReady: ({ data }) => {
+    
+  },
+  onChange: ({ data }) => {
+    
+  },
+  onDestroy: ({ data }) => {
+    
+  },
+})
 ```
 
+### API
 
-## Tools
+**Attribute**
 
-Supported tools
+｜Name | Description | Default |
+| --- | --- | --- |
+|  holder   |   Mount node  |  editor-js-component   |
+|  readonly   |  Read only page   |   false  |
+|  autofocus   |  Autofocus editor   |  true   |
+|  blockToolbar   |  The block tool opens and sorts   |   Array  |
+|  customPlugin   |   Add new plug-in  |   Object  |
+|  pluginConfig   |  Plug-in configuration   |   Object  |
+|  editorConfig   |  Editor configuration   |   Object  |
+|  disablePlugin   | List of disabled plug-ins    |   Array，suach as[ 'header', 'list']  |
+|  data   |   Render data  |  Object   |
+|  messages   |  International translation   |   Object  |
+
+
+**Mehtods**
+
+｜Name | Description | Default |
+| --- | --- | --- |
+|  onStart   |   -  |  Function   |
+|  onReady   |   -  |  Function   |
+|  onChange   |   -  |  Function   |
+|  onDestroy   |   -  |  Function   |
+
+## editorjs-component-vue
+
+editorjs vue packages components
+
+```js
+import { EditorJsVue } from 'editorjs-component-vue'
+
+```
+
+Vue tempalte 
+
+```html
+<EditorJsVue
+    :data="data"
+    :messages="message"
+    :initialized="onInitialized"
+    :tool-config="toolConfig"
+    @changeData="editorChange"
+  />
+```
+
+## Supported Plugins
+
 Same as in Supported Plugins, but with different naming
 
 - header

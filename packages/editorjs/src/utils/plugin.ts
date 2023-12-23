@@ -8,7 +8,8 @@ import {
 // import EditorJs from '@editorjs/editorjs'
 
 import Paragraph from '@editorjs/paragraph'
-import Header from 'editorjs-plugin-header'
+import Header from '@editorjs/header'
+// import Header from 'editorjs-plugin-header'
 import List from '@editorjs/list'
 import NestedList from '@editorjs/nested-list'
 import Button from 'editorjs-button'
@@ -38,7 +39,7 @@ import Underline from '@editorjs/underline'
 import Strikethrough from '@sotaproject/strikethrough'
 import ChangeCase from 'editorjs-change-case'
 import Tooltip from 'editorjs-tooltip'
-import Annotation from 'editorjs-plugin-annotation'
+// import Annotation from 'editorjs-plugin-annotation'
 import { StyleInlineTool } from 'editorjs-style'
 import Hyperlink from 'editorjs-hyperlink'
 
@@ -281,9 +282,9 @@ export const getEditorPlugins = (customPlugin) => ({
       holder: 'vue-editor-js'
     }
   },
-  annotation: {
-    class: Annotation
-  },
+  // annotation: {
+  //   class: Annotation
+  // },
   editorStyle: {
     class: StyleInlineTool
   },

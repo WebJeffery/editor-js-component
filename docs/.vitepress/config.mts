@@ -62,10 +62,10 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/WebJeffery/editor-js-component' }
     ],
     // 搜索
-    algolia: {
-      apiKey: "your_api_key",
-      indexName: "index_name",
-    },
+    // algolia: {
+    //   apiKey: "your_api_key",
+    //   indexName: "index_name",
+    // },
     // returnToTopLabel: "返回顶部",
     lastUpdatedText: "最后更新", // string
   }

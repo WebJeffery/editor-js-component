@@ -3,9 +3,9 @@
   "keywords": [
     "editorjs"
   ],
-  "author": "",
+  "author": "WebJeffery",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.3",
   "type": "module",
   "main": "./dist/editorjs-vue.umd.js",
   "module": "./dist/editorjs-vue.es.js",
@@ -16,6 +16,6 @@
     "build": "vite build"
   },
   "dependencies": {
-    "editor-js-component": "workspace:^"
+    "editor-js-component": "^0.0.3"
   }
 }

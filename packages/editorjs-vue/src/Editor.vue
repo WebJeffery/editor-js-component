@@ -20,13 +20,11 @@ const props = withDefaults(defineProps<EditorType>(), {
 
 const emit = defineEmits<{
   (e: 'changeData', id: number): void
-  (e: 'update', value: string): void
 }>()
 
 const editorInstance = useEditorjs({
   ...props,
   onChange: ({ data }) => {
-    console.log(data)
     emit('changeData', {
       json: data
     })
@@ -65,7 +63,6 @@ defineExpose({
 
   .codex-editor--narrow .codex-editor__redactor {
     margin: 0;
-    // padding: 20px;
   }
 
   .codex-editor--narrow .ce-toolbar__actions,

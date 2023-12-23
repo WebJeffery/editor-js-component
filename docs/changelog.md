@@ -2,4 +2,5 @@
 
 ## 0.0.1 版本
 
-- VitePress 文档
+- editor-js-component 库
+- editorjs-component-vue 库
