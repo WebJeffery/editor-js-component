@@ -22,7 +22,7 @@ features:
     details:
   - title: 丰富插件
     details:
-  - title: 快捷的使用
+  - title: 扩展强大
     details:
 ---
 <home></home>

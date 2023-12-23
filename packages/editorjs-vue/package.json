@@ -1,0 +1,21 @@
+{
+  "name": "editorjs-component-vue",
+  "keywords": [
+    "editorjs"
+  ],
+  "author": "",
+  "private": false,
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./dist/editorjs-vue.umd.js",
+  "module": "./dist/editorjs-vue.es.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "editor-js-component": "workspace:^"
+  }
+}

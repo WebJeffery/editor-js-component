@@ -36,7 +36,7 @@ import { ref } from 'vue'
 import {
   EditorJsVue,
   EditorJsParser
-} from 'editor-js-component'
+} from 'editorjs-component-vue'
 
 import zhMessage from './lang/zh'
 import { blockData } from './data'
@@ -112,10 +112,10 @@ const toolConfig = ref({
   alignBlockTune: {
     config: {
       async changeTune() {
-        const data = await editorInstance.value.save()
-        editorChange({
-          json: data
-        })
+        // const data = await editorInstance.value.save()
+        // editorChange({
+        //   json: data
+        // })
       }
     }
   },
@@ -160,7 +160,7 @@ const lang = ref('en')
 
 const onInitialized = (editor) => {
   editorInstance.value = editor
-  editor.isReady.then(() => {
+  editor.state.editorjs.isReady.then(() => {
     document.querySelector('.ce-inline-toolbar__buttons')?.addEventListener('click', (ev) => {
       let dataSet = ev.target.dataset
       let { target } = ev
@@ -184,7 +184,7 @@ const onInitialized = (editor) => {
 // 切换语言
 const changeLang = () => {
   lang.value = lang.value === 'en' ? 'zh' : 'en'
-  editor.value.refreshEditor()
+  editor.value.refreshEditor({ messages: lang.value === 'zh' ? zhMessage : {} })
 }
 </script>
 

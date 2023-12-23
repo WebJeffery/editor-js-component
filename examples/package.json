@@ -3,5 +3,8 @@
   "private": true,
   "scripts": {
     "dev": "vite dev"
+  },
+  "dependencies": {
+    "editorjs-component-vue": "workspace:^"
   }
 }

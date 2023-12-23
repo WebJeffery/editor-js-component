@@ -115,7 +115,11 @@ importers:
         specifier: ^1.8.5
         version: registry.npmjs.org/vue-tsc@1.8.5(typescript@5.1.6)
 
-  examples: {}
+  examples:
+    dependencies:
+      editorjs-component-vue:
+        specifier: workspace:^
+        version: link:../packages/editorjs-vue
 
   packages/alignment-blocktune: {}
 
@@ -260,6 +264,12 @@ importers:
         version: registry.npmjs.org/editorjs-undo@2.0.26
 
   packages/editorjs-transform-html: {}
+
+  packages/editorjs-vue:
+    dependencies:
+      editor-js-component:
+        specifier: workspace:^
+        version: link:../editorjs
 
   packages/header:
     dependencies:
