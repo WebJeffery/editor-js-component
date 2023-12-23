@@ -138,9 +138,9 @@ const toolConfig = ref({
       },
       searchLinkData(search) {
         const list = [
-          { name: 'xx1', href: 'https://baidu.com', description: '链接描述' }
-          { name: 'xx2', href: 'https://baidu.com', description: '链接描述' }
-          { name: 'xx3', href: 'https://baidu.com', description: '链接描述' }
+          { name: 'xx1', href: 'https://xxx.com', description: '' }
+          { name: 'xx2', href: 'https://xxx.com', description: '' }
+          { name: 'xx3', href: 'https://xxx.com', description: '' }
         ]
         const result = list.filter((item) => item.name.includes(search))
         return Promise.resolve({
@@ -152,7 +152,6 @@ const toolConfig = ref({
   }
 })
 
-// 解决点击链接后，切换内部工具栏不能选中
 const onInitialized = (editor) => {
   editorInstance.value = editor
 }
