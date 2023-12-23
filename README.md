@@ -17,7 +17,7 @@ Please review this first. [https://editorjs.io/](https://editorjs.io/)
 npm install --save editor-js-component
 
 # or Yarn
-yarn add veditor-js-component
+yarn add editor-js-component
 
 # or Pnpm
 pnpm add editor-js-component
@@ -111,7 +111,6 @@ import { EditorJsVue, EditorJsParser } from 'editorjs-component-vue'
 
 ```js
 const blockList = ref([])
-let rangeSelection
 
 const toolConfig = ref({
   image: {
@@ -156,21 +155,6 @@ const toolConfig = ref({
 // 解决点击链接后，切换内部工具栏不能选中
 const onInitialized = (editor) => {
   editorInstance.value = editor
-  editor.state.editorjs.isReady.then(() => {
-    document.querySelector('.ce-inline-toolbar__buttons')?.addEventListener('click', (ev) => {
-      let dataSet = ev.target.dataset
-      let { target } = ev
-      while (!dataSet.tool && target) {
-        dataSet = target.parentNode.dataset
-        target = target.parentNode
-      }
-
-      if (rangeSelection && !['link'].includes(dataSet.tool)) {
-        rangeSelection?.()
-        rangeSelection = null
-      }
-    }, true)
-  })
 }
 
 const editorChange = ({ json }) => {
