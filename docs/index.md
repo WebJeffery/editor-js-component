@@ -3,23 +3,26 @@
 layout: home
 
 hero:
-  name: "Editor.js 富文本组件"
+  image:
+    src: /logo.svg
+    alt: Editor.js
+  name: "Editor.js 富文本编辑器"
   # text: "基于Element-plus组件库"
-  tagline: Notion 风格富文本编辑器
+  tagline: Notion 编辑风格，灵活多样，内容块组织，简洁高效
   actions:
     - theme: brand
-      text: 插件
-      link: /plugins
+      text: 文档
+      link: /develop/quickstart
     - theme: alt
-      text: Demo 案例
-      link: /playground
+      text: 插件
+      link: /plugins/header
 
 features:
   - title: 快速开发
-    details: 
+    details:
   - title: 丰富插件
-    details: 
+    details:
   - title: 快捷的使用
-    details: 
+    details:
 ---
-
+<home></home>

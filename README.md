@@ -1,4 +1,4 @@
-# vue3-editor-js
+# editor-js-composition
 
 基于 Editor.js 实现 Notion 风格富文本编辑器
 
