@@ -1,96 +1,37 @@
-# Editorjs Component
+# editorjs-component-vue
 
-editor-js-component is an editorjs wrapper component that can use Vue and React frameworks
+editorjs-component-vue 是基于 editor-js-component 封装 Vue3 组件
 
-
-Please review this first. [https://editorjs.io/](https://editorjs.io/)
-
-
-[Demo](https://vue-p4wjes.stackblitz.io)
-
-## editor-js-component
-
-### Installation
+## 安装
 
 ```shell
 # NPM
-npm install --save editor-js-component
+npm install --save editorjs-component-vue
 
 # or Yarn
-yarn add veditor-js-component
+yarn add editorjs-component-vue
 
 # or Pnpm
-pnpm add editor-js-component
+pnpm add editorjs-component-vue
 ```
 
-### Usage
+## 组件注册
 
 ```js
-import { useEditorjs } from 'editor-js-component'
+import { 
+  EditorJsVue,
+  EditorJsParser
+} from 'editorjs-component-vue'
 
-const editorInstance = useEditorjs({
-  holder, 
-  readonly,
-  autofocus,
-  blockToolbar,
-  customPlugin,
-  pluginConfig,
-  editorConfig,
-  disablePlugin,
-  data,
-  messages,
-  editorjs: null,
-  onStart: ({ data }) => {
-    
-  },
-  onReady: ({ data }) => {
-    
-  },
-  onChange: ({ data }) => {
-    
-  },
-  onDestroy: ({ data }) => {
-    
-  },
-})
-```
+// or 全局注册组件
 
-### API
+const app = createApp()
 
-**Attribute**
-
-Name | Description | Default |
-| --- | --- | --- |
-|  holder   |   Mount node  |  editor-js-component   |
-|  readonly   |  Read only page   |   false  |
-|  autofocus   |  Autofocus editor   |  true   |
-|  blockToolbar   |  The block tool opens and sorts   |   Array  |
-|  customPlugin   |   Add new plug-in  |   Object  |
-|  pluginConfig   |  Plug-in configuration   |   Object  |
-|  editorConfig   |  Editor configuration   |   Object  |
-|  disablePlugin   | List of disabled plug-ins    |   Array，suach as[ 'header', 'list']  |
-|  data   |   Render data  |  Object   |
-|  messages   |  International translation   |   Object  |
-
-
-**Mehtods**
-
-Name | Description | Default |
-| --- | --- | --- |
-|  onStart   |   -  |  Function   |
-|  onReady   |   -  |  Function   |
-|  onChange   |   -  |  Function   |
-|  onDestroy   |   -  |  Function   |
-
-## editorjs-component-vue
-
-editorjs vue packages components
-
-```js
-import { EditorJsVue, EditorJsParser } from 'editorjs-component-vue'
+app.use(EditorJsVue)
 
 ```
 
+## 组件使用
 
 ```html
 <div class="editor-wrap">
@@ -177,22 +118,3 @@ const editorChange = ({ json }) => {
   blockList.value = json.blocks
 }
 ```
-
-## Supported Plugins
-
-- header
-- list
-- code
-- inlineCode
-- personality
-- embed
-- linkTool
-- marker
-- table
-- raw
-- delimiter
-- quote
-- image
-- warning
-- paragraph
-- checklist
